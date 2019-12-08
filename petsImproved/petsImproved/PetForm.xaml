@@ -10,9 +10,9 @@
         <ScrollViewer>
             <StackPanel>
                 <Label>Name</Label>
-                <TextBox Grid.Row="1" Name="Name" Margin="5"/>
+                <TextBox Grid.Row="1" Name="Name" Margin="5" TextCompositionManager.PreviewTextInput="Name_PreviewTextInput"/>
                 <Label>Age</Label>
-                <TextBox Grid.Row="2" Name="Age" Margin="5"/>
+                <TextBox Grid.Row="2" Name="Age" Margin="5" TextCompositionManager.PreviewTextInput="Age_PreviewTextInput"/>
                 <Label>Size</Label>
                 <RadioButton Checked="Size_Checked" GroupName="Size" Content="Small" IsChecked="True"/>
                 <RadioButton Checked="Size_Checked" GroupName="Size" Content="Medium" />
@@ -27,6 +27,14 @@
                 <RadioButton Checked="Type_Checked" GroupName="Type" Content="Dog" />
                 <Label>Description</Label>
                 <TextBox Grid.Row="5" Name="Description" Margin="5"/>
+                <Label>Image</Label>
+                <DockPanel Margin="10">
+                    <WrapPanel HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10">
+                        <Button Name="btnOpenFile" Click="btnOpenFile_Click">Open file</Button>
+                    </WrapPanel>
+                    <TextBox Name="txtEditor"/>
+                </DockPanel>
+
                 <Button Grid.Row="6" Content="Add Pet" Margin="5" Click="AddPet"/>
             </StackPanel>
         </ScrollViewer>

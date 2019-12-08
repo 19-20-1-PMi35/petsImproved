@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -20,7 +19,7 @@ namespace petsImproved
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /// </summary> 
     public partial class MainWindow : Window
     {
         PetsContext db;
@@ -51,7 +50,14 @@ namespace petsImproved
             OrderWindow orderWindow = new OrderWindow();
             orderWindow.ShowDialog();
         }
-
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            object item = animalsGrid.SelectedItem;
+            int ID = Int32.Parse((animalsGrid.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+            AnimalDetailed animalWindow = new AnimalDetailed();
+            animalWindow.passId(ID);
+            animalWindow.ShowDialog();
+        }
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             db.Dispose();
