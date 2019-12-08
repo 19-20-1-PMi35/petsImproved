@@ -26,7 +26,7 @@
         <StackPanel>
 
             <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-                <Image Stretch="Fill" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" Source="C:\Users\Xoma\Desktop\catdog.jpg"/>
+                <Image Stretch="Fill" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" Source="C:\Users\User\Desktop\petsimproved\petsImproved\petsImproved\catdog.jpg"/>
             </Grid>
 
             <DataGrid AutoGenerateColumns="False" x:Name="animalsGrid">

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using petsImproved.Models;
 
 namespace petsImproved
 {
@@ -20,9 +21,10 @@ namespace petsImproved
     public partial class AnimalDetailed : Window
     {
         private int id;
-        public void passId(int elementId)
+     
+        public AnimalDetailed()
         {
-            id = elementId;
+            InitializeComponent();
         }
         private void AddOrder(object sender, RoutedEventArgs e)
         {
@@ -30,9 +32,17 @@ namespace petsImproved
             orderForm.passId(id);
             orderForm.ShowDialog();
         }
-        public AnimalDetailed()
+        public void init(int elementId)
         {
-            InitializeComponent();
+            id = elementId;
+            PetsContext petsContext = new PetsContext();
+            var petInfo = petsContext.Animals.Find(id);
+            Name.Text = petInfo.name;
+            Bread.Text = "Breed: " + petInfo.breed;
+            Sex.Text = "Sex: " + petInfo.sex;
+            Age.Text = "Age: " + petInfo.age.ToString();
+            Description.Text = petInfo.description;
+
         }
     }
 }
