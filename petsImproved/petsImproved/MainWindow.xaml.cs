@@ -53,7 +53,15 @@ namespace petsImproved
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             object item = animalsGrid.SelectedItem;
-            int ID = Int32.Parse((animalsGrid.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+            int ID = 0;
+            try
+            {
+                ID = Int32.Parse((animalsGrid.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+            }
+            catch (Exception)
+            {
+                return;
+            }
             AnimalDetailed animalWindow = new AnimalDetailed();
             animalWindow.passId(ID);
             animalWindow.ShowDialog();
