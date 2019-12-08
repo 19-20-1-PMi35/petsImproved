@@ -89,5 +89,14 @@ namespace petsImproved
             if (ck.IsChecked.Value)
                 size = Convert.ToString(ck.Content);
         }
+        private void Age_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
+        }
+
+        private void Name_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsLetter(e.Text, 0)) e.Handled = true;
+        }
     }
 }

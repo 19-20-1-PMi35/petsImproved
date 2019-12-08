@@ -10,9 +10,9 @@
         <ScrollViewer>
             <StackPanel>
                 <Label>Name</Label>
-                <TextBox Grid.Row="1" Name="Name" Margin="5"/>
+                <TextBox Grid.Row="1" Name="Name" Margin="5" TextCompositionManager.PreviewTextInput="Name_PreviewTextInput"/>
                 <Label>Age</Label>
-                <TextBox Grid.Row="2" Name="Age" Margin="5"/>
+                <TextBox Grid.Row="2" Name="Age" Margin="5" TextCompositionManager.PreviewTextInput="Age_PreviewTextInput"/>
                 <Label>Size</Label>
                 <RadioButton Checked="Size_Checked" GroupName="Size" Content="Small" IsChecked="True"/>
                 <RadioButton Checked="Size_Checked" GroupName="Size" Content="Medium" />
