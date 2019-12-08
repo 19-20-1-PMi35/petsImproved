@@ -1,0 +1,43 @@
+﻿<Window x:Class="petsImproved.OrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:petsImproved"
+        mc:Ignorable="d"
+        Title="OrderWindow" Height="450" Width="800">
+    
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+
+
+
+            <DataGrid AutoGenerateColumns="False" x:Name="animalsGrid">
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Binding="{Binding surname}" Header="Surname" Width="150"/>
+                    <DataGridTextColumn Binding="{Binding pnone}" Header="Phone" Width="150"/>
+                    <DataGridTextColumn Binding="{Binding animalId}" Header="animalId" Width="80"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+
+
+
+
+    </Grid>
+
+</Window>

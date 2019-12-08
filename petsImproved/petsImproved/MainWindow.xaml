@@ -6,7 +6,44 @@
         xmlns:local="clr-namespace:petsImproved"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20 30 20 10" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+    </Window.Resources>
+
+    <ScrollViewer>
+        <StackPanel>
+
+            <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+                <Image Stretch="Fill" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" Source="C:\Users\Xoma\Desktop\catdog.jpg"/>
+            </Grid>
+
+            <DataGrid AutoGenerateColumns="False" x:Name="animalsGrid">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding name}"  Header="Name" Width="*" IsReadOnly="True">
+
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock" >
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding age}" Header="Age" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding sex}" Header="Sex" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding breed}" Header="Breed" Width="*" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+
+            <Button Background="#8DD1CA" BorderBrush="#8DD1CA"  Foreground="LemonChiffon"  BorderThickness="1" Margin="0,0,0,0" Padding="10,0,10,0" Content="+" Click="AddPet"/>
+            <Button Background="#8DD1CA" BorderBrush="#8DD1CA" VerticalAlignment="Center"  Foreground="LemonChiffon" BorderThickness="1" Margin="0,0,0,40" Padding="10,0,10,0" Content="Orders" Click="ShowOrders"/>
+
+
+
+        </StackPanel>
+    </ScrollViewer>
 </Window>

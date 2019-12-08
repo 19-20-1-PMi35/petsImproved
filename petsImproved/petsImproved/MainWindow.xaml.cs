@@ -1,5 +1,7 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using petsImproved.Models;
 
 namespace petsImproved
 {
@@ -20,9 +23,38 @@ namespace petsImproved
     /// </summary>
     public partial class MainWindow : Window
     {
+        PetsContext db;
+        public static MainWindow AppWindow;
         public MainWindow()
         {
             InitializeComponent();
+            AppWindow = this;
+            this.getData();
+        }
+
+        public void getData()
+        {
+            db = new PetsContext();
+            db.Animals.Load();
+            animalsGrid.ItemsSource = db.Animals.Local.ToBindingList();
+            this.Closing += MainWindow_Closing;
+        }
+
+        private void AddPet(object sender, RoutedEventArgs e)
+        {
+            PetForm petForm = new PetForm();
+            petForm.ShowDialog();
+        }
+
+        private void ShowOrders(object sender, RoutedEventArgs e)
+        {
+            OrderWindow orderWindow = new OrderWindow();
+            orderWindow.ShowDialog();
+        }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            db.Dispose();
         }
     }
 }

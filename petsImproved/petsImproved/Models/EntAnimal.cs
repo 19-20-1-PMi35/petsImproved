@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace pets.Models
+namespace petsImproved.Models
 {
     [Table("tblAnimal")]
     public class EntAnimal
