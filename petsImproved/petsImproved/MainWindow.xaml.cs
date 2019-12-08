@@ -63,7 +63,7 @@ namespace petsImproved
                 return;
             }
             AnimalDetailed animalWindow = new AnimalDetailed();
-            animalWindow.passId(ID);
+            animalWindow.init(ID);
             animalWindow.ShowDialog();
         }
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
