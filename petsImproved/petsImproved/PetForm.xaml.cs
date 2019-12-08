@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 using petsImproved.Models;
 
 
@@ -24,6 +26,8 @@ namespace petsImproved
         public string sex { get; set; }
         public string type { get; set; }
         public string size { get; set; }
+        public byte[] imageData { get; set; }
+
 
         public PetForm()
         {
@@ -37,6 +41,7 @@ namespace petsImproved
             String description = Description.Text;
             EntAnimal animal = new EntAnimal();
             animal.name = name;
+            animal.image = imageData;
             animal.age = age;
             int size_id = 0;
             if (size == "Small")
@@ -97,6 +102,21 @@ namespace petsImproved
         private void Name_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!Char.IsLetter(e.Text, 0)) e.Handled = true;
+        }
+
+        private void btnOpenFile_Click(Object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                var imageStream = openFileDialog.OpenFile();
+
+                imageData = Encoding.Default.GetBytes(new StreamReader(imageStream).ReadToEnd());
+                imageStream.Position = 0;
+                var str = new StreamReader(imageStream).ReadToEnd();
+                txtEditor.Text = str;
+            }
+
         }
     }
 }
