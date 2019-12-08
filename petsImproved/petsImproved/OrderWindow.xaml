@@ -5,39 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:petsImproved"
         mc:Ignorable="d"
-        Title="OrderWindow" Height="450" Width="800">
-    
-    <Grid>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-
-
-
-
-            <DataGrid AutoGenerateColumns="False" x:Name="animalsGrid">
-                <DataGrid.Columns>
-
-                    <DataGridTextColumn Binding="{Binding surname}" Header="Surname" Width="150"/>
-                    <DataGridTextColumn Binding="{Binding pnone}" Header="Phone" Width="150"/>
-                    <DataGridTextColumn Binding="{Binding animalId}" Header="animalId" Width="80"/>
-
-                </DataGrid.Columns>
+        Title="OrderWindow" Height="Auto" Width="900">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20 30 20 10" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+    </Window.Resources>
+    <ScrollViewer>
+        <StackPanel>
+            <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+                <Image Stretch="Fill" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" Source="C:\Users\daxak\Desktop\catdog.jpg"/>
+            </Grid>
+            
+            <DataGrid AutoGenerateColumns="False" x:Name="animalsGrid" Margin="0,0,0.333,-0.333" Grid.RowSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding surname}" Header="Surname" Width="300" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding pnone}" Header="Phone" Width="300" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding animalId}" Header="AnumalId" Width="300" IsReadOnly="True"/>
+            </DataGrid.Columns>
             </DataGrid>
-
-
-
-
-
-
-    </Grid>
+            
+        </StackPanel>
+    </ScrollViewer>
 
 </Window>
