@@ -22,7 +22,13 @@
             </Grid>
 
             <DataGrid AutoGenerateColumns="False" x:Name="animalsGrid">
+                <DataGrid.ItemContainerStyle>
+                    <Style TargetType="DataGridRow">
+                        <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                    </Style>
+                </DataGrid.ItemContainerStyle>
                 <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding id}" Header="Id" Width="*" IsReadOnly="True"/>
                     <DataGridTextColumn Binding="{Binding name}"  Header="Name" Width="*" IsReadOnly="True">
 
                         <DataGridTextColumn.ElementStyle>
