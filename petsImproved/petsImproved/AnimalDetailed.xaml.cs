@@ -24,6 +24,12 @@ namespace petsImproved
         {
             id = elementId;
         }
+        private void AddOrder(object sender, RoutedEventArgs e)
+        {
+            OrdersForms orderForm = new OrdersForms();
+            orderForm.passId(id);
+            orderForm.ShowDialog();
+        }
         public AnimalDetailed()
         {
             InitializeComponent();
