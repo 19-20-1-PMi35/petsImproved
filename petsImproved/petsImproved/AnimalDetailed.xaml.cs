@@ -69,10 +69,16 @@ namespace petsImproved
             id = elementId;
             PetsContext petsContext = new PetsContext();
             var petInfo = petsContext.Animals.Find(id);
+            var sizeId = Convert.ToInt32(petInfo.sizeId);
+            var typeId = Convert.ToInt32(petInfo.typeId);
+            var sizeInfo = petsContext.Sizes.Find(sizeId);
+            var typeInfo = petsContext.Types.Find(typeId);
             Name.Text = petInfo.name;
             Bread.Text = "Breed: " + petInfo.breed;
             Sex.Text = "Sex: " + petInfo.sex;
             Age.Text = "Age: " + petInfo.age.ToString();
+            Size.Text = "Size: " + sizeInfo.size;
+            Type.Text = "Type: " + typeInfo.type;
             Description.Text = petInfo.description;
             File.WriteAllBytes("image.jpg", petInfo.image);
 
