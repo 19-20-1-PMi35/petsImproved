@@ -50,7 +50,9 @@ namespace petsImproved
         private void ShowOrders(object sender, RoutedEventArgs e)
         {
             OrderWindow orderWindow = new OrderWindow();
+            this.Hide();
             orderWindow.ShowDialog();
+            this.Show();
         }
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
