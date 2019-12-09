@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +23,8 @@ namespace petsImproved
     public partial class AnimalDetailed : Window
     {
         private int id;
-     
+
+
         public AnimalDetailed()
         {
             InitializeComponent();
@@ -32,7 +35,33 @@ namespace petsImproved
             orderForm.passId(id);
             orderForm.ShowDialog();
         }
-        public void init(int elementId)
+        private void Delete(object sender, RoutedEventArgs e)
+        {
+            PetsContext petsContext = new PetsContext();
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["PetsConnection2"].ConnectionString))
+                    {
+                        con.Open();
+                        using (SqlCommand command = new SqlCommand("DELETE FROM " + "tblAnimal" + " WHERE " + "id" + " = '" + id + "'", con))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        con.Close();
+                    }
+                    petsImproved.MainWindow.AppWindow.getData();
+                    this.Close();
+                }
+                catch (SystemException ex)
+                {
+                    MessageBox.Show(string.Format("An error occurred: {0}", ex.Message));
+                }
+            }
+        }
+    public void init(int elementId)
         {
             id = elementId;
             PetsContext petsContext = new PetsContext();
