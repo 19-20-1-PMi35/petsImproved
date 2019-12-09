@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,8 @@ namespace petsImproved
         public string sex { get; set; }
         public string type { get; set; }
         public string size { get; set; }
+        public string imageString { get; set; }
+        public string imageName { get; set; }
         public byte[] imageData { get; set; }
 
 
@@ -107,16 +110,17 @@ namespace petsImproved
         private void btnOpenFile_Click(Object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
             if (openFileDialog.ShowDialog() == true)
-            {
-                var imageStream = openFileDialog.OpenFile();
+            {            
+                //imageString = System.IO.File.ReadAllText(openFileDialog.FileName);
+               
+                imageData = File.ReadAllBytes(openFileDialog.FileName);
 
-                imageData = Encoding.Default.GetBytes(new StreamReader(imageStream).ReadToEnd());
-                imageStream.Position = 0;
-                var str = new StreamReader(imageStream).ReadToEnd();
-                txtEditor.Text = str;
+                //imageData = Encoding.Default.GetBytes(imageString);
             }
-
         }
+
+        
     }
 }
