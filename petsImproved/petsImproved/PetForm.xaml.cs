@@ -39,10 +39,26 @@ namespace petsImproved
         private void AddPet(object sender, RoutedEventArgs e)
         {
             String name = Name.Text;
+            if (Age.Text == "")
+            {
+                MessageBox.Show("Fill all required fields!");
+                return;
+            }
             int age = Int32.Parse(Age.Text);
             String breed = Breed.Text;
             String description = Description.Text;
             EntAnimal animal = new EntAnimal();
+            if (name == "")
+            {
+                MessageBox.Show("Fill all required fields!");
+                return;
+            }
+            if (imageData == null)
+            {
+                MessageBox.Show("Fill all required fields!");
+                return;
+            }
+            
             animal.name = name;
             animal.image = imageData;
             animal.age = age;
@@ -70,7 +86,17 @@ namespace petsImproved
                 type_id = 1;
             }
             animal.typeId = type_id;
+            if (breed == "")
+            {
+                MessageBox.Show("Fill all required fields!");
+                return;
+            }
             animal.breed = breed;
+            if (description == "")
+            {
+                MessageBox.Show("Fill all required fields!");
+                return;
+            }
             animal.description = description;
             animal.sex = sex;
             PetsContext context = new PetsContext();

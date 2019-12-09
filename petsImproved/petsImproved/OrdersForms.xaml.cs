@@ -41,7 +41,17 @@ namespace petsImproved
         private void AddOrder(object sender, RoutedEventArgs e)
         {
             String name = Name.Text;
+            if (Name.Text == "")
+            {
+                MessageBox.Show("Fill all required fields!");
+                return;
+            }
             String phone = Phone.Text;
+            if (Phone.Text == "")
+            {
+                MessageBox.Show("Fill all required fields!");
+                return;
+            }
             EntOrder order = new EntOrder();
             order.surname = name;
             order.pnone = phone;

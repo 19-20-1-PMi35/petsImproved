@@ -17,14 +17,17 @@
                
                 
                 <DataGrid.Columns>
-                    
+                <DataGridTextColumn Binding="{Binding id}" Header="Surname" Width="300" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding surname}" Header="Surname" Width="300" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding pnone}" Header="Phone" Width="300" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding animalId}" Header="AnumalId" Width="300" IsReadOnly="True"/>
-                <DataGridComboBoxColumn ItemsSource="{Binding CompanyItems}"
-                     DisplayMemberPath="Name"
-                     SelectedValuePath="ID"
-                     SelectedValueBinding="{Binding CompanyID}" />
+                    <DataGridTemplateColumn Header="Delete">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnView" Content="Delete" Click="btnView_Click" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
 

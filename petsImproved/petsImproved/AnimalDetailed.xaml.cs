@@ -40,7 +40,6 @@ namespace petsImproved
         }
         private void Delete(object sender, RoutedEventArgs e)
         {
-            PetsContext petsContext = new PetsContext();
             MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
