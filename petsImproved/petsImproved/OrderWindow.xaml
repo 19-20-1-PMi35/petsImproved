@@ -6,13 +6,7 @@
         xmlns:local="clr-namespace:petsImproved"
         mc:Ignorable="d"
         Title="OrderWindow" Height="Auto" Width="900">
-    <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Margin" Value="20 30 20 10" />
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="30" />
-        </Style>
-    </Window.Resources>
+   
     <ScrollViewer>
         <StackPanel>
             <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
@@ -20,13 +14,21 @@
             </Grid>
             
             <DataGrid AutoGenerateColumns="False" x:Name="animalsGrid" Margin="0,0,0.333,-0.333" Grid.RowSpan="2">
-            <DataGrid.Columns>
+               
+                
+                <DataGrid.Columns>
+                    
                 <DataGridTextColumn Binding="{Binding surname}" Header="Surname" Width="300" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding pnone}" Header="Phone" Width="300" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding animalId}" Header="AnumalId" Width="300" IsReadOnly="True"/>
-            </DataGrid.Columns>
+                <DataGridComboBoxColumn ItemsSource="{Binding CompanyItems}"
+                     DisplayMemberPath="Name"
+                     SelectedValuePath="ID"
+                     SelectedValueBinding="{Binding CompanyID}" />
+                </DataGrid.Columns>
             </DataGrid>
-            
+
+
         </StackPanel>
     </ScrollViewer>
 
