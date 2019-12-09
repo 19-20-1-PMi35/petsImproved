@@ -14,13 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="MainWindow" Height="Auto" Width="Auto">
-    <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Margin" Value="20 30 20 10" />
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="30" />
-        </Style>
-    </Window.Resources>
+  
 
     <ScrollViewer>
         <StackPanel>
@@ -54,8 +48,8 @@
 
 
 
-            <Button Background="#8DD1CA" BorderBrush="#8DD1CA"  Foreground="LemonChiffon"  BorderThickness="1" Margin="0,0,0,0" Padding="10,0,10,0" Content="+" Click="AddPet"/>
-            <Button Background="#8DD1CA" BorderBrush="#8DD1CA" VerticalAlignment="Center"  Foreground="LemonChiffon" BorderThickness="1" Margin="0,0,0,40" Padding="10,0,10,0" Content="Orders" Click="ShowOrders"/>
+            <Button Background="#8DD1CA" BorderBrush="#8DD1CA"  Foreground="LemonChiffon" Width="100" Height="30" BorderThickness="1" Margin="20 30 20 10" Padding="10,0,10,0" Content="+" Click="AddPet"/>
+            <Button Background="#8DD1CA" BorderBrush="#8DD1CA" VerticalAlignment="Center" Width="100" Height="30" Foreground="LemonChiffon" BorderThickness="1"  Margin="20 0 20 10" Padding="10,0,10,0" Content="Orders" Click="ShowOrders"/>
 
 
 

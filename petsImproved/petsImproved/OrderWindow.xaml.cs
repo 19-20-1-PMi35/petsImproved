@@ -23,10 +23,16 @@ namespace petsImproved
     public partial class OrderWindow : Window
     {
         PetsContext db;
+        public static OrderWindow App;
         public OrderWindow() //зображує 
         {
             InitializeComponent();
+            App = this;
+            this.getData();
+        }
 
+        public void getData()
+        {
             db = new PetsContext();
             db.Orders.Load();
             animalsGrid.ItemsSource = db.Orders.Local.ToBindingList();
@@ -34,6 +40,7 @@ namespace petsImproved
             this.Closing += OrderWindow_Closing;
         }
        
+
 
         private void OrderWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
