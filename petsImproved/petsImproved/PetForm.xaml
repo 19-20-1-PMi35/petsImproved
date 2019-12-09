@@ -32,7 +32,6 @@
                     <WrapPanel HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10">
                         <Button Name="btnOpenFile" Click="btnOpenFile_Click">Open file</Button>
                     </WrapPanel>
-                    <TextBox Name="txtEditor"/>
                 </DockPanel>
 
                 <Button Grid.Row="6" Content="Add Pet" Margin="5" Click="AddPet"/>
