@@ -39,7 +39,6 @@
                         </DataGridTextColumn.ElementStyle>
 
                     </DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding typeId}" Header="Type" Width="*" IsReadOnly="True"/>
                     <DataGridTextColumn Binding="{Binding age}" Header="Age" Width="*" IsReadOnly="True"/>
                     <DataGridTextColumn Binding="{Binding sex}" Header="Sex" Width="*" IsReadOnly="True"/>
                     <DataGridTextColumn Binding="{Binding breed}" Header="Breed" Width="*" IsReadOnly="True"/>
