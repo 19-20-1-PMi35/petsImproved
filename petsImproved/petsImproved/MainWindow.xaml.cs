@@ -42,7 +42,9 @@ namespace petsImproved
         private void AddPet(object sender, RoutedEventArgs e)
         {
             PetForm petForm = new PetForm();
+            this.Hide();
             petForm.ShowDialog();
+            this.Show();
         }
 
         private void ShowOrders(object sender, RoutedEventArgs e)
@@ -64,7 +66,8 @@ namespace petsImproved
             }
             AnimalDetailed animalWindow = new AnimalDetailed();
             animalWindow.init(ID);
-            animalWindow.ShowDialog();
+            this.Hide();
+            animalWindow.ShowDialog(); 
         }
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
