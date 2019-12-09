@@ -34,7 +34,9 @@ namespace petsImproved
         {
             OrdersForms orderForm = new OrdersForms();
             orderForm.passId(id);
+            this.Hide();
             orderForm.ShowDialog();
+            this.Show();
         }
         private void Delete(object sender, RoutedEventArgs e)
         {
@@ -89,14 +91,11 @@ namespace petsImproved
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Main_Button_Click(object sender, RoutedEventArgs e)
         {
-           
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
+            this.Close();
+            MainWindow main = new MainWindow();
+            main.ShowDialog();
         }
     }
 }
