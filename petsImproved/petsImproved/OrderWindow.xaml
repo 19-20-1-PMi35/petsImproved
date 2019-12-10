@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:petsImproved"
         mc:Ignorable="d"
-        Title="OrderWindow" Height="Auto" Width="900">
+        Title="OrderWindow" Height="Auto" Width="800">
    
     <ScrollViewer>
         <StackPanel>
@@ -17,10 +17,10 @@
                
                 
                 <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding id}" Header="Surname" Width="300" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding surname}" Header="Surname" Width="300" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding pnone}" Header="Phone" Width="300" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding animalId}" Header="AnumalId" Width="300" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding id}" Header="Surname" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding surname}" Header="Surname" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding pnone}" Header="Phone" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding animalId}" Header="AnumalId" Width="150" IsReadOnly="True"/>
                     <DataGridTemplateColumn Header="Delete">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
